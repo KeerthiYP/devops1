@@ -1,6 +1,5 @@
 
 
-package com.bnmit;
 
 public class BankService {
 
