@@ -3,48 +3,25 @@
 
 public class BankService {
 
-    // Nested class
-    static class BankAccount {
-        private double balance;
-
-        public BankAccount(double initialBalance) {
-            if (initialBalance < 0) {
-                throw new IllegalArgumentException("Initial balance cannot be negative");
-            }
-            this.balance = initialBalance;
-        }
-
-        public void deposit(double amount) {
-            if (amount <= 0) {
-                throw new IllegalArgumentException("Deposit must be positive");
-            }
-            balance += amount;
-        }
-
-        public void withdraw(double amount) {
-            if (amount <= 0 || amount > balance) {
-                throw new IllegalArgumentException("Invalid withdrawal");
-            }
-            balance -= amount;
-        }
-
-        public double getBalance() {
-            return balance;
-        }
-    }
-
-    // Main method
     public static void main(String[] args) {
+        int[] numbers = {5, 2, 9, 1, 5, 6};
 
-        BankAccount acc = new BankAccount(5000);
-        System.out.println("Initial Balance: " + acc.getBalance());
 
-        acc.deposit(700);
-        System.out.println("Balance after deposit of 700: I am me mmmm" + acc.getBalance());
+        for (int i = 0; i < numbers.length - 1; i++) {
+            for (int j = 0; j < numbers.length - i - 1; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+              
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                }
+            }
+        }
 
-        acc.withdraw(100);
-        System.out.println("Balance after withdrawal of 100: " + acc.getBalance());
-
-        System.out.println("Final Balance: " + acc.getBalance());
+      
+        System.out.println("Sorted numbers:");
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
     }
 }
